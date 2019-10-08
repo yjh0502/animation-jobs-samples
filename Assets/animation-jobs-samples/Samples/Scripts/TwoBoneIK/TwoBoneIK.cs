@@ -16,9 +16,9 @@ public class TwoBoneIK : MonoBehaviour
 
     void OnEnable()
     {
-        var idleClip = SampleUtility.LoadAnimationClipFromFbx("DefaultMale/Models/DefaultMale_Generic", "Idle");
-        if (idleClip == null)
-            return;
+        // var idleClip = SampleUtility.LoadAnimationClipFromFbx("DefaultMale/Models/DefaultMale_Generic", "Idle");
+        // if (idleClip == null)
+        //     return;
 
         if (endJoint == null)
             return;
@@ -41,7 +41,7 @@ public class TwoBoneIK : MonoBehaviour
         twoBoneIKJob.Setup(GetComponent<Animator>(), m_TopJoint, m_MidJoint, endJoint, m_Effector.transform);
 
         m_IKPlayable = AnimationScriptPlayable.Create(m_Graph, twoBoneIKJob);
-        m_IKPlayable.AddInput(AnimationClipPlayable.Create(m_Graph, idleClip), 0, 1.0f);
+        // m_IKPlayable.AddInput(AnimationClipPlayable.Create(m_Graph, idleClip), 0, 1.0f);
 
         output.SetSourcePlayable(m_IKPlayable);
         m_Graph.Play();

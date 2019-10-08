@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 497a748a44857b442b84aad615de9985
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Cube
+    100004: Cube.001
+    100006: Cube.002
+    100008: Cube.003
+    100010: Cube.004
+    100012: Cube.005
+    100014: Cube.006
+    100016: Cube.007
+    100018: Cube.008
+    100020: Cube.009
+    100022: Cube.010
+    100024: Cube.011
+    100026: Cube.012
+    100028: Cube.013
+    100030: Cube.014
+    100032: Cube.015
+    100034: Cube.016
+    100036: Cube.017
+    100038: Cube.018
+    100040: Cube.019
+    100042: Cube.020
+    100044: Cube.021
+    100046: Cube.022
+    100048: Cube.023
+    100050: Cube.024
+    100052: //RootNode
+    100054: Head Jaw
+    100056: Head Jaw_end
+    100058: Head Skull
+    100060: Head Skull_end
+    100062: Left Ankle
+    100064: Left Arm
+    100066: Left Foot
+    100068: Left Foot_end
+    100070: Left Hand
+    100072: Left Hand_end
+    100074: Left Leg
+    100076: Left Shoulder
+    100078: Left Thigh
+    100080: Neck 01
+    100082: Neck 02
+    100084: Right Ankle
+    100086: Right Arm
+    100088: Right Foot
+    100090: Right Foot_end
+    100092: Right hand
+    100094: Right hand_end
+    100096: Right Leg
+    100098: Right Shoulder
+    100100: Right Thigh
+    100102: Spine 01
+    100104: Spine 02
+    100106: Spine 03
+    100108: Spine 03_end
+    100110: Sun
+    100112: Tail 01
+    100114: Tail 02
+    100116: Tail 03
+    100118: Tail 04
+    100120: Tail 04_end
+    400000: Armature
+    400002: Cube
+    400004: Cube.001
+    400006: Cube.002
+    400008: Cube.003
+    400010: Cube.004
+    400012: Cube.005
+    400014: Cube.006
+    400016: Cube.007
+    400018: Cube.008
+    400020: Cube.009
+    400022: Cube.010
+    400024: Cube.011
+    400026: Cube.012
+    400028: Cube.013
+    400030: Cube.014
+    400032: Cube.015
+    400034: Cube.016
+    400036: Cube.017
+    400038: Cube.018
+    400040: Cube.019
+    400042: Cube.020
+    400044: Cube.021
+    400046: Cube.022
+    400048: Cube.023
+    400050: Cube.024
+    400052: //RootNode
+    400054: Head Jaw
+    400056: Head Jaw_end
+    400058: Head Skull
+    400060: Head Skull_end
+    400062: Left Ankle
+    400064: Left Arm
+    400066: Left Foot
+    400068: Left Foot_end
+    400070: Left Hand
+    400072: Left Hand_end
+    400074: Left Leg
+    400076: Left Shoulder
+    400078: Left Thigh
+    400080: Neck 01
+    400082: Neck 02
+    400084: Right Ankle
+    400086: Right Arm
+    400088: Right Foot
+    400090: Right Foot_end
+    400092: Right hand
+    400094: Right hand_end
+    400096: Right Leg
+    400098: Right Shoulder
+    400100: Right Thigh
+    400102: Spine 01
+    400104: Spine 02
+    400106: Spine 03
+    400108: Spine 03_end
+    400110: Sun
+    400112: Tail 01
+    400114: Tail 02
+    400116: Tail 03
+    400118: Tail 04
+    400120: Tail 04_end
+    2100000: No Name
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: Cube.005
+    2300012: Cube.006
+    2300014: Cube.007
+    2300016: Cube.008
+    2300018: Cube.009
+    2300020: Cube.010
+    2300022: Cube.011
+    2300024: Cube.012
+    2300026: Cube.013
+    2300028: Cube.014
+    2300030: Cube.015
+    2300032: Cube.016
+    2300034: Cube.017
+    2300036: Cube.018
+    2300038: Cube.019
+    2300040: Cube.020
+    2300042: Cube.021
+    2300044: Cube.022
+    2300046: Cube.023
+    2300048: Cube.024
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: Cube.005
+    3300012: Cube.006
+    3300014: Cube.007
+    3300016: Cube.008
+    3300018: Cube.009
+    3300020: Cube.010
+    3300022: Cube.011
+    3300024: Cube.012
+    3300026: Cube.013
+    3300028: Cube.014
+    3300030: Cube.015
+    3300032: Cube.016
+    3300034: Cube.017
+    3300036: Cube.018
+    3300038: Cube.019
+    3300040: Cube.020
+    3300042: Cube.021
+    3300044: Cube.022
+    3300046: Cube.023
+    3300048: Cube.024
+    4300000: Cube
+    4300002: Cube.001
+    4300004: Cube.002
+    4300006: Cube.003
+    4300008: Cube.004
+    4300010: Cube.005
+    4300012: Cube.006
+    4300014: Cube.007
+    4300016: Cube.008
+    4300018: Cube.009
+    4300020: Cube.010
+    4300022: Cube.011
+    4300024: Cube.012
+    4300026: Cube.013
+    4300028: Cube.014
+    4300030: Cube.015
+    4300032: Cube.016
+    4300034: Cube.017
+    4300036: Cube.018
+    4300038: Cube.019
+    4300040: Cube.020
+    4300042: Cube.021
+    4300044: Cube.022
+    4300046: Cube.023
+    4300048: Cube.024
+    9500000: //RootNode
+    10800000: Sun
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
