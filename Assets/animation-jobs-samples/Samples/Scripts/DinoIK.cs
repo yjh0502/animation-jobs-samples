@@ -53,11 +53,11 @@ public class DinoIK : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // var dist = effector.transform.position - transforms[0].position;
-        // if (dist.magnitude < 0.01f)
-        // {
-        //     return;
-        // }
+        var dist = effector.transform.position - transforms[0].position;
+        if (dist.magnitude < 0.01f)
+        {
+            return;
+        }
 
         Step();
     }
@@ -74,60 +74,64 @@ public class DinoIK : MonoBehaviour
         var startPos = effector.transform.position;
         var endPos = posList[posList.Length - 1];
 
-        // forward path
+        // forward path, target to root
         var targetPos = startPos;
         for (var i = 0; i < transforms.Count - 1; i++)
         {
-            var constraint = transforms[i].GetComponent<Constraint>();
+            var childIdx = i;
+            var parentIdx = i + 1;
+            var childConstraint = transforms[childIdx].GetComponent<Constraint>();
             Vector3 nextTail;
-            if (constraint == null)
+            if (childConstraint == null)
             {
-                forwardBackwardPass(posList[i], posList[i + 1], targetPos, out nextTail);
+                forwardBackwardPass(posList[childIdx], posList[parentIdx], targetPos, out nextTail);
             }
             else
             {
-                nextTail = constraint.ClampedParentPosition(posList[i + 1], targetPos);
+                nextTail = childConstraint.ClampedParentPosition(posList[parentIdx], targetPos);
             }
 
-            posList[i] = targetPos;
+            posList[childIdx] = targetPos;
             targetPos = nextTail;
         }
         posList[transforms.Count - 1] = targetPos;
 
-        // backward path
+        // backward path, root to target
         targetPos = endPos;
         for (var i = transforms.Count - 1; i > 0; i--)
         {
-            var constraint = transforms[i - 1].GetComponent<Constraint>();
+            var childIdx = i - 1;
+            var parentIdx = i;
+            var childConstraint = transforms[childIdx].GetComponent<Constraint>();
             Vector3 nextTail;
-            if (constraint == null)
+            if (childConstraint == null)
             {
-                forwardBackwardPass(posList[i], posList[i - 1], targetPos, out nextTail);
+                forwardBackwardPass(posList[parentIdx], posList[childIdx], targetPos, out nextTail);
             }
             else
             {
-                nextTail = constraint.ClampedPosition(targetPos, posList[i - 1]);
+                nextTail = childConstraint.ClampedPosition(targetPos, posList[childIdx]);
             }
 
-            posList[i] = targetPos;
+            posList[parentIdx] = targetPos;
             targetPos = nextTail;
         }
         posList[0] = targetPos;
 
+        for (var i = transforms.Count - 1; i > 0; i--)
+        {
+            var parent = posList[i];
+            var child = posList[i - 1];
+
+            var lookVec = child - parent;
+            var lookAtRot = Quaternion.LookRotation(lookVec, Vector3.up);
+
+            transforms[i].rotation = lookAtRot * rotations[i];
+        }
+
         for (var i = transforms.Count - 1; i >= 0; i--)
         {
             transforms[i].position = posList[i];
-        }
-
-        for (var i = transforms.Count - 1; i > 0; i--)
-        {
-            var parent = transforms[i];
-            var child = transforms[i - 1];
-
-            var lookVec = child.position - parent.position;
-            var lookAtRot = Quaternion.LookRotation(lookVec, Vector3.up);
-
-            parent.rotation = lookAtRot * rotations[i];
         }
     }
 

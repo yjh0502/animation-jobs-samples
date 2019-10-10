@@ -8,7 +8,7 @@ public class Constraint : MonoBehaviour
 
     public float magnitude;
     public Vector3 forward, up;
-    public Quaternion rotation;
+    public Quaternion lookRotation, rotation;
 
     public Vector3 eulerAngles, clampedAngles;
 
@@ -18,12 +18,18 @@ public class Constraint : MonoBehaviour
         forward = parent.position - transform.position;
         magnitude = forward.magnitude;
 
-        rotation = Quaternion.LookRotation(forward, Vector3.up);
-        up = rotation * Vector3.up;
+        lookRotation = Quaternion.LookRotation(forward, Vector3.up);
+        up = lookRotation * Vector3.up;
+
+        rotation = transform.rotation;
     }
 
     void OnDrawGizmos()
     {
+        var baseRotation = transform.rotation * Quaternion.Inverse(rotation);
+
+        Vector3 up = baseRotation * this.up;
+        Vector3 forward = baseRotation * this.forward;
         Vector3 left = Quaternion.AngleAxis(90, up) * forward;
 
         float size = 1.0f;
@@ -54,8 +60,11 @@ public class Constraint : MonoBehaviour
         }
 
         {
+            // var baseRotation = transform.rotation * Quaternion.Inverse(rotation) * lookRotation;
+            var baseRotation2 = baseRotation * lookRotation;
+
             var rot = Quaternion.LookRotation(transform.parent.position - transform.position, Vector3.up);
-            var inv = Quaternion.Inverse(rot) * rotation;
+            var inv = Quaternion.Inverse(rot) * baseRotation2;
 
             eulerAngles = inv.eulerAngles;
 
@@ -66,7 +75,7 @@ public class Constraint : MonoBehaviour
             clampedAngles.x = clampAngle(eulerAngles.x, minX, maxX);
             clampedAngles.y = clampAngle(eulerAngles.y, minY, maxY);
             var clampedInv = Quaternion.Euler(clampedAngles.x, clampedAngles.y, clampedAngles.z);
-            var clampedRot = rotation * Quaternion.Inverse(clampedInv);
+            var clampedRot = baseRotation2 * Quaternion.Inverse(clampedInv);
 
             Handles.color = Color.green;
             Handles.DrawLine(transform.position, transform.position + clampedRot * Vector3.forward);
@@ -90,16 +99,20 @@ public class Constraint : MonoBehaviour
 
     public Quaternion ClampedParentRotation(Vector3 parentPosition, Vector3 position)
     {
+        var baseRotation = transform.rotation * Quaternion.Inverse(rotation);
+        var baseRotation2 = baseRotation * lookRotation;
+
         var rot = Quaternion.LookRotation(parentPosition - position, Vector3.up);
-        var inv = Quaternion.Inverse(rot) * rotation;
+        var inv = Quaternion.Inverse(rot) * baseRotation2;
 
         var eulerAngles = inv.eulerAngles;
 
         var clampedAngles = eulerAngles;
-        clampedAngles.x = clampAngle(eulerAngles.x, minX, maxX);
-        clampedAngles.y = clampAngle(eulerAngles.y, minY, maxY);
+        // clampedAngles.x = clampAngle(eulerAngles.x, minX, maxX);
+        // clampedAngles.y = clampAngle(eulerAngles.y, minY, maxY);
+        // clampedAngles.z = 0;
         var clampedInv = Quaternion.Euler(clampedAngles.x, clampedAngles.y, clampedAngles.z);
-        var clampedRot = rotation * Quaternion.Inverse(clampedInv);
+        var clampedRot = baseRotation2 * Quaternion.Inverse(clampedInv);
 
         return clampedRot;
     }
